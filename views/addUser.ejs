@@ -1,0 +1,32 @@
+<html>
+
+<%- include('head.ejs') %>
+
+    <body>
+        <h1>Ajouter un Utilisateur</h1>
+        <form action="/addUser" method="POST">
+
+
+            <label for="nom">Nom :</label>
+            <input type="text" name="nom" required><br>
+
+            <label for="prenom">Prenom :</label>
+            <input type="text" name="prenom" required></input><br>
+
+            <label for="mail">Mail :</label>
+            <input type="email" name="mail"><br>
+
+            <label for="mailContact">Mail de Contact :</label>
+            <input type="email" name="mailContact" required><br>
+
+            <label for="age"> Age :</label>
+            <input type="number" name="age"><br>
+
+            <button type="submit">Ajouter</button>
+        </form>
+        <a href="/">Accueil</a>
+        <a href="/livre">Livre</a>
+        <a href="/user">Users</a>
+    </body>
+
+</html>

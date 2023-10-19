@@ -1,0 +1,127 @@
+<%- include('head.ejs') %>
+
+    <nav class="navbar w-100">
+        <div class="container-fluid justify-content-start">
+            <!-- Nav Header -->
+            <div class="navbar-header">
+                <div class="logo">
+                    <a href="/"><img src="/img/logo.png" alt="inklink" border="0"></a>
+                </div>
+                <button type="button" class="navbar-toggle border-0 p-3" data-toggle="collapse" data-target="#collapse-1" aria-expanded="false">
+                    <span class="fa fa-search"></span>
+			    </button>
+                <a class="navbar-brand" href="/discover"><span class="fa fa-home"></span><span class="link"> Home</span></a>
+            </div>
+            <!-- Nav Left -->
+            <ul class="nav navbar-nav d-flex flex-row w-75">
+                <!-- Products -->
+                <li class="dropdown p-2">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="fa fa-tags"></span><span class="link"> Catégories</span> <span class="fa fa-caret-down"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><span class="fa fa-tags"></span> Catalogue 1</a></li>
+                        <li><a href="#"><span class="fa fa-tag"></span> Catalogue 2</a></li>
+                    </ul>
+                </li>
+                <!-- About -->
+                <li class="p-2"><a href="#"><span class="fa fa-list"></span><span class="link">My List</span></a></li>
+                <!-- Contact -->
+                <li class="p-2"><a href="/livre"><span class="fa fa-pen-nib"></span><span class="link"> Write</span></a></li>
+                <!-- profil -->
+                <li class="dropdown p-2">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="fa fa-user"></span><span class="link"> Profil</span> <span class="fa fa-caret-down"></span></a>
+                    <ul class="dropdown-menu">
+                        <% if (isConnected){%>
+                            <li>
+                                <a href="/profil"><span class="fa fa-user" /></span>
+                                    <%= dpn %>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/ajouterLivre"><span class="fa fa-user" /></span> Ecrire un livre</a>
+                            </li>
+                            <li>
+                                <a href="/livre"><span class="fa fa-user" /></span> Mes livres</a>
+                            </li>
+                            <li>
+                                <a href="#"><span class="fa fa-user" /></span> Mes favoris</a>
+                            </li>
+                            <li>
+                                <a href="/logout"><button class="btn-primaire">disconnect</button></a>
+                            </li>
+                            <% } else { %>
+                                <li>
+                                    <a href="#" onclick="showModal('connexion')"><span class="fa fa-user"></span> Se connecter</a>
+                                </li>
+                                <dialog connexion>
+                                    <div class="w-100">
+                                        <div class="login-box">
+                                            <div class="lb-header">
+                                                <a href="#" class="active" id="login-box-link">Login</a>
+                                                <a href="#" id="signup-box-link">Sign Up</a>
+                                            </div>
+                                            <div class="social-login">
+                                                <a href="#">
+                                                    <i class="fa fa-brands fa-facebook-f fa-lg" style="color: #fff;"></i> Log in with facebook
+                                                </a>
+                                                <a href="#">
+                                                    <i class="fa fa-brands fa-google fa-lg"></i> Log in with Google
+                                                </a>
+                                            </div>
+                                            <form class="email-login">
+                                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                                <div class="u-form-group">
+                                                    <input type="email" placeholder="Email" />
+                                                </div>
+                                                <div class="u-form-group">
+                                                    <input type="password" placeholder="Password" />
+                                                </div>
+                                                <div class="u-form-group d-flex">
+                                                    <button onclick="closeModal('connexion')" class="m-3">Cancel</button>
+                                                    <button class="m-3" onclick="connect(document.querySelector('.email-login'))" id="login-button">Log in</button>
+                                                </div>
+                                                <div class="u-form-group">
+                                                    <a href="#" class="forgot-password">Forgot password?</a>
+                                                </div>
+                                            </form>
+                                            <form class="email-signup">
+                                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                                <div class="u-form-group">
+                                                    <input type="text" placeholder="Pen name" />
+                                                </div>
+                                                <div class="u-form-group">
+                                                    <input type="email" placeholder="Email" />
+                                                </div>
+
+                                                <div class="u-form-group">
+                                                    <input type="password" placeholder="Password" />
+                                                </div>
+                                                <div class="u-form-group">
+                                                    <input type="password" name="confirmPass" placeholder="Confirm Password" />
+                                                </div>
+                                                <div class="u-form-group d-flex">
+                                                    <button onclick="closeModal('connexion')" class="m-3">Cancel</button>
+                                                    <button class="m-3" onclick="signup(document.querySelector('.email-signup'))" id="signup-button">Sign Up</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </dialog>
+                                <% } %>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Nav Collapse -->
+            <div class="navbar-collapse" id="collapse-1">
+
+                <!-- Nav Right -->
+                <form class="navbar-form navbar-right d-flex p-2">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn"><span class="fa fa-search"></span></button>
+                </form>
+            </div>
+        </div>
+    </nav>

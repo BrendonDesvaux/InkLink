@@ -1,0 +1,54 @@
+<html>
+
+<%- include('head.ejs') %>
+
+    <body class="">
+        <main class="d-flex align-items-center">
+            <div class="col-md-9 col-12 mainbg">
+                <div class="container h-75 d-flex flex-column justify-content-center" style="text-align: center;">
+                    <div class="logoMain">
+                        <a href="/"><img src="/img/logotxt.png" alt="inklink" border="0"></a>
+                    </div>
+                    <h1>"Unite the World of Words ! Share, Discover, and Connect !"</h1>
+                    <a href="/discover">
+                        <div id="container">
+                            <button class="learn-more" landingBtn>
+                        <span class="circle" aria-hidden="true">
+                        <span class="icon arrow"></span>
+                        </span>
+                    <span class="button-text">Discover</span>
+                </button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-structor">
+                    <div class="signup">
+                        <h2 class="form-title" id="signupMain"><span>or</span>Sign up</h2>
+                        <form class="form-holder">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <input type="text" class="input" placeholder="Pen Name" />
+                            <input type="email" class="input" placeholder="Email" />
+                            <input type="password" class="input" placeholder="Password" />
+                            <input type="password" class="input" name="confirmPass" placeholder="Verify Password" />
+                        </form>
+                        <button type="button" class="submit-btn" onclick="signup(document.querySelector('.signup .form-holder'))">Sign up</button>
+                    </div>
+                    <div class="login slide-up">
+                        <div class="center">
+                            <h2 class="form-title" id="loginMain"><span>or</span>Log in</h2>
+                            <form class="form-holder">
+                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                <input type="email" class="input" placeholder="Email" />
+                                <input type="password" class="input" placeholder="Password" />
+                            </form>
+                            <button type="button" class="submit-btn" onclick="connect(document.querySelector('.login .form-holder'))">Log in</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+
+</html>

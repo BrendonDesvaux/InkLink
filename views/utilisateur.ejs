@@ -1,0 +1,30 @@
+<html>
+
+<%- include('head.ejs') %>
+
+    <body>
+        <h1>Liste des utilisateurs</h1>
+        <ul>
+            <% users.forEach(utilisateur => { %>
+                <li class="d-flex">
+                    <div class="p-2">
+                        <%= escape(utilisateur.pn) %>
+                    </div>
+                    <div class="p-2">
+                        <%= escape(utilisateur.idCo) %>
+                    </div>
+                    <div class="p-2">
+                        <%= escape(utilisateur.mail) %>
+                    </div>
+                    <a href="/delUser/<%= utilisateur._id %>"><button>Supprimer</button></a>
+                    <a href="/modUser/<%= utilisateur._id %>"><button>Modifier</button></a>
+                </li>
+                <% }); %>
+        </ul>
+
+        <a href="/addUser"><button>Ajouter Utilisateur</button></a>
+        <a href="/">Accueil</a>
+        <a href="/livre">Livre</a>
+    </body>
+
+</html>

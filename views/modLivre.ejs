@@ -1,0 +1,87 @@
+<html>
+
+<%- include('head.ejs') %>
+
+    <body>
+        <h1>Modifier un livre</h1>
+        <form action="/updateLivre/<%= livre._id %>" method="POST">
+
+
+            <label for="titre">Titre :</label>
+            <!-- Utilisez la fonction escape() pour échapper les caractères dans les champs du formulaire -->
+            <input type="text" name="titre" value="<%= livre.titre %>" required><br>
+
+            <label for="genre">Genre :</label>
+            <select name="genre" class="form-select" aria-label="Genre de roman">
+                <option selected><%= livre.genre %></option>
+                <option value="contemporain">Contemporain</option>
+                <option value="historique">Historique</option>
+                <option value="policier">Policier</option>
+                <option value="thriller">Thriller</option>
+                <option value="science-fiction">Science-fiction</option>
+                <option value="fantaisie">Fantaisie</option>
+                <option value="horreur">Horreur</option>
+                <option value="romance">Romance</option>
+                <option value="drame">Drame</option>
+                <option value="aventure">Aventure</option>
+                <option value="jeunesse">Jeunesse</option>
+                <option value="classique">Classique</option>
+                <option value="suspense">Suspense</option>
+                <option value="mystère">Mystère</option>
+                <option value="action">Action</option>
+                <option value="espionnage">Espionnage</option>
+                <option value="littérature féminine">Littérature féminine</option>
+                <option value="littérature LGBTQ+">Littérature LGBTQ+</option>
+                <option value="littérature urbaine">Littérature urbaine</option>
+                <option value="littérature mondiale">Littérature mondiale</option>
+                <option value="psychologique">Psychologique</option>
+                <option value="philosophique">Philosophique</option>
+                <option value="épistolaire">Épistolaire</option>
+                <option value="satirique">Satirique</option>
+                <option value="science-fiction dystopique">Science-fiction dystopique</option>
+                <option value="fantasy épique">Fantasy épique</option>
+                <option value="amour">Amour</option>
+                <option value="aventures">Aventures</option>
+                <option value="apprentissage">Apprentissage</option>
+                <option value="guerre">Guerre</option>
+                <option value="gothique">Gothique</option>
+                <option value="société">Société</option>
+                <option value="réaliste">Réaliste</option>
+                <option value="autobiographique">Autobiographique</option>
+                <option value="expérimental">Expérimental</option>
+                <option value="politique">Politique</option>
+                <option value="social">Social</option>
+                <option value="humoristique">Humoristique</option>
+                <option value="fantastique">Fantastique</option>
+                <option value="voyage">Voyage</option>
+                <option value="romantique">Romantique</option>
+                <option value="philosophico-spirituel">Philosophico-spirituel</option>
+                <option value="post-apocalyptique">Post-apocalyptique</option>
+              </select>
+
+            <label for="auteur">Auteur :</label>
+            <input type="text" name="auteur" value="<%= livre.auteur %>" required><br>
+
+            <label for="cover">Cover :</label>
+            <input type="text" name="cover" value="<%= livre.cover %>"><br>
+
+            <label for="bacolor">Couleur arrière :</label>
+            <input type="color" name="bacolor" value="<%= livre.bacolor %>"><br>
+
+            <label for="resume"> Résumé Arriere :</label>
+            <textarea name="resume" required><%= livre.resume %></textarea><br>
+
+            <label for="histoire"> Ecrivez votre histoire :</label>
+            <textarea name="histoire" required><%= livre.histoire %></textarea><br>
+
+            <!-- Ajoutez les autres champs du formulaire ici (description, genre, auteur, etc.) -->
+            <label for="description">Description :</label>
+            <textarea name="description" required><%= livre.description %></textarea><br>
+
+            <button type="submit">Ajouter</button>
+        </form>
+        <a href="/">Accueil</a>
+        <a href="/livre">Livre</a>
+    </body>
+
+</html>

@@ -1,0 +1,75 @@
+<%- include('navbar.ejs') %>
+
+    <body>
+        <section class="container">
+            <% var genres = {}; %>
+                <% livres.forEach(function(livre) { %>
+                    <% if (!genres[livre.genre]) { %>
+                        <% genres[livre.genre] = []; %>
+                            <% } %>
+                                <% genres[livre.genre].push(livre); %>
+                                    <% }); %>
+
+                                        <% for (var genre in genres) { %>
+                                            <% var livresGenre = genres[genre]; %>
+                                                <div class="component">
+                                                    <div class="scroll-bar">
+                                                        <div class="pageTitle">
+                                                            <h1>
+                                                                <%= genre.charAt(0).toUpperCase() + genre.slice(1) %>
+                                                            </h1>
+                                                        </div>
+                                                        <hr>
+                                                        <div class="d-flex justify-content-between mb-2" style="width: 99%;">
+                                                            <button class="scroll-left-btn">🡸</button>
+                                                            <button class="scroll-right-btn">🡺</button>
+                                                        </div>
+                                                        <ul class="align">
+                                                            <% livresGenre.forEach(function(livre) { %>
+                                                                <li>
+                                                                    <figure class='book'>
+                                                                        <!-- Front -->
+                                                                        <ul class='hardcover_front'>
+                                                                            <li>
+                                                                                <div class="coverDesign" style="background-image: url(<%= livre.cover %>); background-position: center;background-size: cover;background-repeat: no-repeat; ">
+                                                                                    <h3>
+                                                                                        <%= livre.titre %>
+                                                                                    </h3>
+                                                                                    <p>
+                                                                                        <%= livre.auteur %>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li></li>
+                                                                        </ul>
+                                                                        <!-- Pages -->
+                                                                        <ul class='page'>
+                                                                            <li></li>
+                                                                            <li>
+                                                                                <a class="btn-book btn-genre" href="#" data-id="<%= livre._id %>" data-genre="<%= livre.genre %>">Discover</a>
+                                                                            </li>
+                                                                            <li></li>
+                                                                            <li></li>
+                                                                            <li></li>
+                                                                        </ul>
+                                                                        <!-- Back -->
+                                                                        <ul class='hardcover_back'>
+                                                                            <li></li>
+                                                                            <li></li>
+                                                                        </ul>
+                                                                        <ul class='book_spine'>
+                                                                            <li></li>
+                                                                            <li></li>
+                                                                        </ul>
+                                                                    </figure>
+                                                                </li>
+                                                                <% }); %>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <section class="container livre-description hide" id="bookDetails-<%= genre.toLowerCase().replace(/\s/g, '') %>">
+                                                </section>
+                                                <% } %>
+        </section>
+    </body>

@@ -1,0 +1,24 @@
+<html>
+<%- include('head.ejs') %>
+
+    <body>
+        <h1>Liste des livres</h1>
+        <ul>
+            <% livres.forEach(livre => { %>
+                <li class="p-2">
+                    <a href="/lireLivre/<%= livre._id %>">
+                        <%= (livre.titre) %>
+                            <%= (livre.genre) %>
+
+                    </a>
+                    <a href="/modLivre/<%= livre._id %>"><button>modifier</button></a>
+                    <a href="/delLivre/<%= livre._id %>"><button>supprimer</button></a>
+                </li>
+                <!-- Affichez d'autres informations du livre ici -->
+                <% }); %>
+        </ul>
+        <a href="/">Accueil</a>
+        <a href="/ajouterLivre">Ajouter un livre</a>
+    </body>
+
+</html>

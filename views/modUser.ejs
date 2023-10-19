@@ -1,0 +1,33 @@
+<html>
+
+<%- include('head.ejs') %>
+
+    <body>
+        <h1>Modifier un Utilisateur</h1>
+        <form action="/updateUser/<%= user._id %>" method="POST">
+            <!-- Notez que nous ajoutons l'ID de l'utilisateur dans l'URL d'action du formulaire -->
+            <!-- Cela permettra au serveur de savoir quel utilisateur mettre à jour -->
+
+            <label for="nom">Nom :</label>
+            <input type="text" name="nom" placeholder="" value="<%= escape(user.nom) %>" required><br>
+
+            <label for="prenom">Prenom :</label>
+            <input type="text" name="prenom" value="<%= escape(user.prenom) %>" required><br>
+
+            <label for="mail">Mail :</label>
+            <input type="email" name="mail" value="<%= escape(user.mail) %>"><br>
+
+            <label for="mailContact">Mail de Contact :</label>
+            <input type="email" name="mailContact" value="<%= escape(user.mailContact) %>" required><br>
+
+            <label for="age"> Age :</label>
+            <input type="number" name="age" value="<%= user.age %>"><br>
+
+            <button type="submit">Modifier</button>
+        </form>
+        <a href="/">Accueil</a>
+        <a href="/livre">Livre</a>
+        <a href="/user">Users</a>
+    </body>
+
+</html>
