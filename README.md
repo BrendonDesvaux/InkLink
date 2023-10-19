@@ -13,7 +13,7 @@ git clone https://github.com/votre-utilisateur/INKLINK.git
 ```
 2. Navigate to the project directory.
 ```bash
-cd INKLINK
+cd <name_of_folder_with_project_inside>
 ```
 3. Install the required dependencies.
 ```bash
