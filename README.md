@@ -9,7 +9,7 @@ To run the application locally, follow these steps:
 1. Clone the repository to your local machine.
 
 ```bash
-git clone https://github.com/votre-utilisateur/INKLINK.git
+git clone https://github.com/BrendonDesvaux/INKLINK.git
 ```
 2. Navigate to the project directory.
 ```bash
